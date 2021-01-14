@@ -1645,13 +1645,13 @@ p {
   z-index: 5;
 }
 
-@media (max-width: 575px) {
+/* @media (max-width: 575px) {
   .form-subscription .btn {
     padding-right: 1.0625rem;
     padding-left: 1.0625rem;
     font-size: 0.875rem;
   }
-}
+} */
 
 .form-subscription.form--sm .btn {
   height: 3.4375rem;
@@ -4345,4 +4345,11 @@ body[class*="theme-"] .form-subscription .btn {
 .switcher .theme-variation a.active span {
   opacity: 1;
   visibility: visible;
+}
+
+@media (max-width: 991px) {
+  #dwnloadUrl{
+    position: absolute;
+    right: 50px;
+  }
 }
