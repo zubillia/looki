@@ -23,6 +23,25 @@
     <!-- Your CSS -->
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '595785387436696');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=595785387436696&ev=PageView&noscript=1"
+    /></noscript>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <!-- End Facebook Pixel Code -->
 </head>
 
 <body class="gradient-6" data-spy="scroll" data-target="#navbar-nav">
@@ -34,9 +53,9 @@
             <div class="position-relative text-center">
               <form action="#" class="form form-subscription">
                   <div class="input-group mb-3 mb-sm-0">
-                      <input type="email" class="form-control rounded-full" placeholder="Enter your email" required>
+                      <input id="emailInput" type="email" class="form-control rounded-full" placeholder="Enter your email" required>
                   </div>
-                  <button class="btn rounded-full btn--submit btn--color-primary btn--bg-white" type="submit">
+                  <button class="btn rounded-full btn--submit btn--color-primary btn--bg-white" type="button" onclick="sendMail('emailInput')">
                       <span class="btn__text">Send</span>
                   </button>
               </form>
@@ -705,9 +724,9 @@
                         <div class="position-relative text-center">
                             <form action="#" class="form form-subscription">
                                 <div class="input-group mb-3 mb-sm-0">
-                                    <input type="email" class="form-control rounded-full" placeholder="Enter your email to receive" required>
+                                    <input id="emailInput2" type="email" class="form-control rounded-full" placeholder="Enter your email to receive" required>
                                 </div>
-                                <button class="btn rounded-full btn--submit btn--color-primary btn--bg-white" type="submit">
+                                <button class="btn rounded-full btn--submit btn--color-primary btn--bg-white" type="button" onclick="sendMail('emailInput2')">
                                     <span class="btn__text">Get</span>
                                 </button>
                             </form>

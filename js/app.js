@@ -420,12 +420,13 @@
 
     $('#popup').dialog({ width:'auto', 'autoOpen': false, modal: true, hide: 'fade',
     show: 'fade',
-      // close: function(){
-      //   // $('html, body').css({
-      //   //   overflow: 'auto',
-      //   //   height: 'auto'
-      //   // });
-      // },
+      close: function(){
+        // $('html, body').css({
+        //   overflow: 'auto',
+        //   height: 'auto'
+        // });
+        $('#emailInput').val();
+      },
       // open: function(){
       //   // $('html, body').css({
       //   //   overflow: 'hidden',
@@ -437,5 +438,28 @@
 })(jQuery);
 
 function openPopup(){
+  fbq('track', 'AddToCart');
   $('#popup').dialog('open');
+}
+
+function sendMail(idEntry){
+  if($('#' + idEntry).val()){
+    Email.send({
+      Host : "smtp.gmail.com",
+      Username : "lookicorpmail@gmail.com",
+      Password : "kuntid-vycvoj-6Hyphy",
+      To : 'lookicorpmail@gmail.com',
+      From : "lookicorpmail@gmail.com",
+      Subject : "Lookie email sent",
+      Body : $('#' + idEntry).val()
+      }).then(
+        message => {
+          alert('Message was successfully sent! Thank you!');
+          fbq('track', 'Lead');
+          $('#' + idEntry).val('');
+          if(idEntry == 'emailInput')
+            $('#popup').dialog('close');
+        }
+     );
+  }
 }
